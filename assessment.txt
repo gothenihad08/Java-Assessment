@@ -1,0 +1,346 @@
+Assignment 7.1
+ For loop Statement:
+
+  class NCG {
+    public static void main(String[] args)
+    {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+        }
+    }
+}
+
+
+
+While Loop Satetement:
+
+int i = 0;
+while (i < 5) {
+  System.out.println(i);
+  i++;
+}
+
+
+Continue Statement :
+public class ContinueExample {  
+public static void main(String[] args) {  
+   
+    for(int i=1;i<=10;i++){  
+        if(i==5){  
+              
+            continue;
+        }  
+        System.out.println(i);  
+    }  
+}  
+}  
+
+if Statement :
+class IfDemo {
+    public static void main(String args[])
+    {
+        int i = 10;
+ 
+        if (i < 15)
+            System.out.println("10 is less than 15");
+ 
+        System.out.println("Outside if-block");
+    }
+}
+
+
+Switch Statement:
+
+int day = 4;
+switch (day) {
+  case 1:
+    System.out.println("Monday");
+    break;
+  case 2:
+    System.out.println("Tuesday");
+    break;
+  case 3:
+    System.out.println("Wednesday");
+    break;
+  case 4:
+    System.out.println("Thursday");
+    break;
+  case 5:
+    System.out.println("Friday");
+    break;
+  case 6:
+    System.out.println("Saturday");
+    break;
+  case 7:
+    System.out.println("Sunday");
+    break;
+}
+// Outputs "Thursday" (day 4)
+
+
+Recursion in Java:
+
+public class RecursionExample1 {  
+static void p(){  
+System.out.println("hello");  
+p();  
+}  
+  
+public static void main(String[] args) {  
+p();  
+}  
+}  
+
+Binary Search Tree in Java;
+public class BinarySearchTree {    
+    //Represent the node of binary tree    
+    public static class Node{    
+        int data;    
+        Node left;    
+        Node right;    
+        public Node(int data){    
+            //Assign data to the new node, set left and right children to null    
+            this.data = data;    
+            this.left = null;    
+            this.right = null;    
+            }    
+        }    
+    //Represent the root of binary tree    
+    public Node root;    
+    public BinarySearchTree(){    
+        root = null;    
+    }    
+    //factorial() will calculate the factorial of given number    
+    public int factorial(int num) {    
+        int fact = 1;    
+        if(num == 0)    
+            return 1;    
+        else {    
+            while(num > 1) {    
+                fact = fact * num;    
+                num--;    
+            }    
+            return fact;    
+        }    
+    }    
+    //numOfBST() will calculate the total number of possible BST by calculating Catalan Number for given key    
+    public int numOfBST(int key) {    
+        int catalanNumber = factorial(2 * key)/(factorial(key + 1) * factorial(key));    
+        return catalanNumber;    
+    }    
+    public static void main(String[] args) {    
+        BinarySearchTree bt = new BinarySearchTree();    
+        //Display total number of possible binary search tree with key 5    
+        System.out.println("Total number of possible Binary Search Trees with given key: " + bt.numOfBST(5));    
+      }    
+}    
+
+
+
+Closure in Java:
+
+package com.javatpoint;  
+@FunctionalInterface  
+public interface Operation   
+{  
+void operate(int n);  
+}  
+ ClosureExample.java  
+package com.javatpoint;  
+public class ClosureExample  
+{  
+public static void main(String args[])  
+{  
+int x=20;  
+int y=90;  
+//the method parses two parameters i.e. x and the operate() method of the Operation interface  
+//implementation of closure in lambda expression  
+doSum(x, new Operation()  
+{  
+//overrides the operate() method      
+@Override  
+public void operate(int n)  
+{     
+//prints the result   
+System.out.println("Sum is: "+(n+y));  
+}  
+});  
+}  
+private static void doSum(int i, Operation op)  
+{  
+op.operate(i);  
+}  
+} 
+
+
+
+
+
+1.2:-
+
+getElementById in Javascript:
+
+<script type="text/javascript">  
+function getcube(){  
+var number=document.getElementById("number").value;  
+alert(number*number*number);  
+}  
+</script>  
+<form>  
+Enter No:<input type="text" id="number" name="number"/><br/>  
+<input type="button" value="cube" onclick="getcube()"/>  
+</form>  
+
+
+
+
+8.2:
+prime number or not:
+
+
+// program to check if a number is prime or not
+
+// take input from the user
+const number = parseInt(prompt("Enter a positive number: "));
+let isPrime = true;
+
+// check if number is equal to 1
+if (number === 1) {
+    console.log("1 is neither prime nor composite number.");
+}
+
+// check if number is greater than 1
+else if (number > 1) {
+
+    // looping through 2 to number-1
+    for (let i = 2; i < number; i++) {
+        if (number % i == 0) {
+            isPrime = false;
+            break;
+        }
+    }
+
+    if (isPrime) {
+        console.log(`${number} is a prime number`);
+    } else {
+        console.log(`${number} is a not prime number`);
+    }
+}
+
+// check if number is less than 1
+else {
+    console.log("The number is not a prime number.");
+}
+
+
+
+
+Difference between next prime nuymber:
+
+
+function isPrime(n)
+{
+    if (n <= 1) return false;
+    if (n <= 3) return true;
+    if (n%2 == 0 || n%3 == 0) return false;
+     
+    for (let i=5; i*i<=n; i=i+6)
+        if (n%i == 0 || n%(i+2) == 0)
+        return false;
+     
+    return true;
+} 
+function nextPrime(N)
+{
+
+    if (N <= 1)
+        return 2;
+ 
+    let prime = N;
+    let found = false;
+ 
+    
+    while (!found) {
+        prime++;
+ 
+        if (isPrime(prime))
+            found = true;
+    }
+ 
+    return prime;
+}
+ 
+    let N = 3;
+ 
+    document.write(nextPrime(N));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
